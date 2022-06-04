@@ -1,6 +1,5 @@
 
-// Music player plays music
-// plugin from: https://www.jq22.com/
+// 播放器播放音乐
 $(document).ready(function () {
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', $('.active-song').attr('data-src'));
@@ -102,7 +101,4 @@ $(document).ready(function () {
 
 
 
-// present player
-$("#getMusic").click(function () {
-    console.log(6666)
-})
+

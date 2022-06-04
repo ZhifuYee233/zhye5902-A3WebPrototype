@@ -8,143 +8,43 @@
 <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/index.css">
 <link rel="stylesheet" href="../css/css.css">
+<link rel="stylesheet" href="../css/timer.css">
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/ajax.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/TweenMax.min.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
-<body>
-<div class="big">
+<body style="height: 650px">
+<div class="big" style="padding: 0">
     <!--    导航栏-->
     <div class="title-block navbar navbar-fixed-top navbar">
         <div class="title"><img src="../images/icon.jpg"></div>
         <div class="title-select">
-            <div class="current">Tasks</div>
-            <div onclick="toTimer()">Timer</div>
+            <div onclick="toIndex()">Tasks</div>
+            <div class="current">Timer</div>
             <div onclick="getMusic()" id="musicBtn">Music</div>
         </div>
     </div>
 
-    <div class="content-block">
-        <div class="notice">Add your tasks as a list and complete them in stages!</div>
-        <div class="task-block">
-            <div class="operator row">
-                <button class="btn btn-sm col-lg-offset-10 col-lg-1"><i class="fa fa-refresh fa-2x"
-                                                                        aria-hidden="true"></i></button>
-                <button type="button" class="btn btn-sm col-lg-1" data-toggle="modal" data-target="#myModal"><i
-                        class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
-            </div>
-            <div class="task-card">
-                <div class="taskIntroduce">
-                    <div class="taskName">TaskName<sup class="urgent">urgent</sup></div>
-                    <div class="expectedTime">
-                        <ul>
-                            <li>ExpectedTime:</li>
-                            <li>10hours</li>
-                        </ul>
-                    </div>
-                    <div class="dueDate">
-                        <ul>
-                            <li>DueDate:</li>
-                            <li>26 April</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="task-content">
-                    <div class="mainTaskIntroduce">
-                        <div class="mainTaskName">mainTaskName</div>
-                        <div class="isOpen">open</div>
-                        <div class="isDone">not done</div>
-                    </div>
-                    <div class="textarea"><textarea class="form-control" rows="5"></textarea></div>
-                </div>
-            </div>
-
-            <div class="task-card">
-                <div class="taskIntroduce">
-                    <div class="taskName">TaskName<sup class="urgent">urgent</sup></div>
-                    <div class="expectedTime">
-                        <ul>
-                            <li>ExpectedTime:</li>
-                            <li>10hours</li>
-                        </ul>
-                    </div>
-                    <div class="dueDate">
-                        <ul>
-                            <li>DueDate:</li>
-                            <li>26 April</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="task-content">
-                    <div class="mainTaskIntroduce">
-                        <div class="mainTaskName">mainTaskName</div>
-                        <div class="isOpen">open</div>
-                        <div class="isDone">not done</div>
-                    </div>
-                    <div class="textarea"><textarea class="form-control"></textarea></div>
-                </div>
-            </div>
-        </div>
+    <div class="content-block" style="height: 650px">
+        <br>
+       <div class="timer-block" >
+          <div class="timer-img"><img src="../images/pomo-icon.jpg"></div>
+          <div class="time-content">25:00</div>
+          <div class="time-text">Focus on your assignment!</div>
+          <div class="time-operator">
+              <div><button><i class="fa fa-play" aria-hidden="true"></i></button> </div>
+              <div><button><i class="fa fa-repeat" aria-hidden="true"></i></button> </div>
+              <div><button><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button> </div>
+          </div>
+       </div>
     </div>
     <footer style="text-align: center">
         <p>&copy; Make in zhye5902, DECO2017, Assessment 3, Web app prototype.</p>
     </footer>
 </div>
 
-<!--保存任务模态框-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">add Task</h4>
-            </div>
-            <form>
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="taskName">taskName</label>
-                        <input type="text" class="form-control" id="taskName" placeholder="taskName"
-                               aria-describedby="inputSuccess3Status">
-                    </div>
-                    <div class="form-group">
-                        <label for="expectedTime">expectedTime</label>
-                        <input type="time" class="form-control" id="expectedTime" placeholder="expectedTime">
-                    </div>
-                    <div class="form-group">
-                        <label for="dueDate">dueDate</label>
-                        <input type="datetime-local" class="form-control" id="dueDate" placeholder="dueDate">
-                    </div>
-                    <div class="form-group">
-                        <label for="mainTask">mainTask</label>
-                        <input type="text" class="form-control" id="mainTask" placeholder="mainTask">
-                    </div>
-                    <div class="form-group">
-                        <label for="remark">remark</label>
-                        <textarea class="form-control" id="remark"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>is Done?</label><br>
-                        <label class="radio-inline">
-                            <input type="radio" name="isDone" id="inlineRadio1" value="false"> Not Done
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="isDone" id="inlineRadio2" value="true"> Done
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <!--音乐播放器-->
 <div class="player">
@@ -217,8 +117,8 @@
         }
     }
 
-    function toTimer() {
-        location.assign("Timer.html");
+    function toIndex() {
+        location.assign("index.html");
     }
 </script>
 </html>

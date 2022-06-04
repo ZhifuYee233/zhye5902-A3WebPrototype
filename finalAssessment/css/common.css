@@ -22,6 +22,7 @@
 .big .title-block .title img {
     width: 80%;
     height: 80%;
+    opacity: 0.5;
 }
 .big .title-block .title-select{
     width: 80%;
@@ -29,6 +30,8 @@
     /*background-color: #1b6d85;*/
     display: flex;
     justify-content: right;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .big .title-block .title-select div{
     width: 10%;
