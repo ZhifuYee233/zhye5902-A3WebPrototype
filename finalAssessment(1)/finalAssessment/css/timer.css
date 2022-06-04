@@ -1,0 +1,67 @@
+.content-block .timer-block{
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    margin-top: 2vw;
+    border-radius: 10px;
+}
+
+.content-block .timer-block .timer-img{
+    width: 90%;
+    height: 11vw;
+    /*background-color: yellow;*/
+    margin: auto;
+}
+.content-block .timer-block .timer-img img{
+    width: 100%;
+}
+.content-block .timer-block .time-content{
+    width: 90%;
+    height: 10vw;
+    /*background-color: yellow;*/
+    margin: auto;
+    line-height: 10vw;
+    font-size: 5vw;
+    letter-spacing: 5px;
+    font-weight: 300;
+    text-align: center;
+    text-shadow: 1px 1px rgba(0,0,0,0.2),
+                 1.5px 1.5px rgba(0,0,0,0.3),
+                 2px 2px rgba(0,0,0,0.4) ;
+}
+.content-block .timer-block .time-text{
+    height: 4vw;
+    line-height: 4vw;
+    width: 90%;
+    /*background-color: yellow;*/
+    margin: auto;
+    font-size: 2vw;
+    text-align: center;
+    font-weight: 600;
+    color: indianred;
+}
+.content-block .timer-block .time-operator{
+    width: 60%;
+    height: 6vw;
+    display: flex;
+    /*background-color: yellow;*/
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+}
+.content-block .timer-block .time-operator div{
+    width: 4vw;
+    height: 4vw;
+}
+.content-block .timer-block .time-operator button{
+    line-height: 4vw;
+    width: 4vw;
+    height: 4vw;
+    background-color: palevioletred;
+    border: none;
+    border-radius: 50%;
+    font-size: 2.5vw;
+    text-align: center;
+    color: white;
+}
