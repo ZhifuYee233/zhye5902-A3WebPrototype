@@ -15,6 +15,7 @@
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/TweenMax.min.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/timer.js"></script>
 <body style="height: 650px">
 <div class="big" style="padding: 0">
     <!--    导航栏-->
@@ -27,18 +28,29 @@
         </div>
     </div>
 
-    <div class="content-block" style="height: 650px">
+    <div class="content-block" style="height: 650px;position: relative">
         <br>
        <div class="timer-block" >
           <div class="timer-img"><img src="../images/pomo-icon.jpg"></div>
-          <div class="time-content">25:00</div>
+          <div class="time-content" id="timer">25:00</div>
           <div class="time-text">Focus on your assignment!</div>
           <div class="time-operator">
-              <div><button><i class="fa fa-play" aria-hidden="true"></i></button> </div>
-              <div><button><i class="fa fa-repeat" aria-hidden="true"></i></button> </div>
-              <div><button><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button> </div>
+              <div><button onclick="timerRun()" id="timerPlay"><i class="fa fa-play" aria-hidden="true"></i></button> </div>
+              <div><button onclick="timerReload()"><i class="fa fa-repeat" aria-hidden="true"></i></button> </div>
+              <div><button onclick="toRelax()"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button> </div>
           </div>
        </div>
+
+        <div class="timer-block-relax" >
+            <div class="timer-img"><img src="../images/资源%207-80.jpg"></div>
+            <div class="time-content" id="relax">5:00</div>
+            <div class="time-text">Take a short break!</div>
+            <div class="time-operator">
+                <div><button onclick="relaxRun()" id="relaxPlay"><i class="fa fa-play" aria-hidden="true"></i></button> </div>
+                <div><button onclick="relaxReload()"><i class="fa fa-repeat" aria-hidden="true"></i></button> </div>
+                <div><button onclick="toTaskTime()"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button> </div>
+            </div>
+        </div>
     </div>
     <footer style="text-align: center">
         <p>&copy; Make in zhye5902, DECO2017, Assessment 3, Web app prototype.</p>
