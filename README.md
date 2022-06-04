@@ -50,3 +50,35 @@
 ### According to people's preference on color, most of my friends think the original brown is too bad, while suggest to use strong color like red.
 ### Below is the final effect.
 ![image](https://github.com/ZhifuYee233/zhye5902-A3WebPrototype/blob/main/iteration2/g2.gif)
+
+![image](https://github.com/ZhifuYee233/zhye5902-A3WebPrototype/blob/main/iteration2/p14.png)
+### First of all, through the add icon, a form will pops up to let users to fill all the task info like Name, expected finishing time, due date, resources link, and completion status. The interface and user experience is improved in a large scale.
+
+![image](https://github.com/ZhifuYee233/zhye5902-A3WebPrototype/blob/main/iteration2/p11.png)
+### The system will automatically sorting for users by the duedate in order to prioritize the one which about to close the deadline!:scream: As you can see there is a red urgent tag near the task name, only the first(Priority) one will have that.
+
+![image](https://github.com/ZhifuYee233/zhye5902-A3WebPrototype/blob/main/iteration2/p15.png)
+### Users can open their resource link if they filled in form, just click the "open". 
+
+![image](https://github.com/ZhifuYee233/zhye5902-A3WebPrototype/blob/main/iteration2/p16.png)
+![image](https://github.com/ZhifuYee233/zhye5902-A3WebPrototype/blob/main/iteration2/p13.png)
+### Finally, I add a delete button which the original design doesn't have, it enhances the user experience as tasks could become more and more redundant without deleting some of them.
+
+<br>
+
+<br>
+
+# Reference
+
+<br>
+
+### *喵不嗷(Buao Miao)*, (2021, April 4) [JS计时器]十分钟再写一个计时器！(JS timer, write a timer again in ten mins). Retrieved from: https://www.bilibili.com/video/BV19Z4y1F7Ay?spm_id_from=333.337.search-card.all.click
+### *牡丹飞(Fei MuDan)*,(2020, November 10). js任务列表、选项卡和加载(JS task list, select cars and loading) Retrieved from: https://www.php.cn/blog/detail/24810.html
+### *learn-webdev*,(2020, May 16). Pomodoro Timer | Javascript Beginner Project Tutorial. Retrieved from: https://www.youtube.com/watch?v=vAEG6OVCass
+### Coding resources:
+### https://www.jq22.com/
+### https://getbootstrap.com/
+### http://sizzlejs.com/
+### http://greensock.com
+### Music: Phoebe Lou, (2013). See You Again [Recorded by Wiz Khalifa]. *On Furious 7: Original Motion Picture Soundtrack*. California, America.
+### Brad Delson, (2003). Numb [Recorded by Linkin Park]. *Meteora*. America.
