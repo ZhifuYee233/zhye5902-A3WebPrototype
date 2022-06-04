@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.big{
+    width: 100%;
+}
+.big .title-block {
+    height: 5vw;
+    background-color: indianred;
+    width: 100%;
+    display: flex;
+}
+
+.big .title-block .title {
+    width: 20%;
+    height: 100%;
+    line-height: 5vw;
+    text-align: center;
+}
+
+.big .title-block .title img {
+    width: 80%;
+    height: 80%;
+}
+.big .title-block .title-select{
+    width: 80%;
+    height: 100%;
+    /*background-color: #1b6d85;*/
+    display: flex;
+    justify-content: right;
+}
+.big .title-block .title-select div{
+    width: 10%;
+    height: 100%;
+    margin: 0 3vw;
+    line-height: 5vw;
+    font-size: 2vw;
+    color: white;
+    font-weight: bolder;
+    font-family: "Times New Roman";
+    text-align: center;
+}
+.big .title-block .title-select div:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.05);
+}
+/*当前页面选择有下划线*/
+.current{
+    text-decoration:underline;
+    text-underline-offset: 0.5vw;
+}
+
+.big .content-block{
+    width: 100%;
+    background-color: lightgray;
+    margin-top: 5vw;
+    position: relative;
+    padding: 50px 0;
+    padding-top: 0;
+}
+
