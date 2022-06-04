@@ -48,3 +48,5 @@
 
 ![image](https://github.com/ZhifuYee233/zhye5902-A3WebPrototype/blob/main/iteration2/p1.png)
 ### According to people's preference on color, most of my friends think the original brown is too bad, while suggest to use strong color like red.
+### Below is the final effect.
+![image](https://github.com/ZhifuYee233/zhye5902-A3WebPrototype/blob/main/iteration2/g2.gif)
