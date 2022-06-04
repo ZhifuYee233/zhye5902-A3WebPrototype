@@ -1,5 +1,5 @@
 
-// 播放器播放音乐
+// 播放器播放音乐(Music player plays music)
 $(document).ready(function () {
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', $('.active-song').attr('data-src'));

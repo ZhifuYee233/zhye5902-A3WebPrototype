@@ -31,7 +31,7 @@
         <div class="notice">Add your tasks as a list and complete them in stages!</div>
         <div class="task-block">
             <div class="operator row">
-                <button class="btn btn-sm col-lg-offset-10 col-lg-1"><i class="fa fa-refresh fa-2x"
+                <button class="btn btn-sm col-lg-offset-10 col-lg-1" onclick="reflush()"><i class="fa fa-refresh fa-2x"
                                                                         aria-hidden="true"></i></button>
                 <button type="button" class="btn btn-sm col-lg-1" data-toggle="modal" data-target="#myModal"><i
                         class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
@@ -82,10 +82,11 @@
                     <div class="mainTaskIntroduce">
                         <div class="mainTaskName">mainTaskName</div>
                         <div class="isOpen">open</div>
-                        <div class="isDone">not done</div>
+                        <div class="isDone" onclick="doneOnclick()">not done</div>
                     </div>
                     <div class="textarea"><textarea class="form-control"></textarea></div>
                 </div>
+                <button class="deleteBtn btn btn-danger">delete</button>
             </div>
         </div>
     </div>
@@ -103,29 +104,32 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel">add Task</h4>
             </div>
-            <form>
                 <div class="modal-body">
 
                     <div class="form-group">
                         <label for="taskName">taskName</label>
-                        <input type="text" class="form-control" id="taskName" placeholder="taskName"
+                        <input type="text" class="form-control" name="taskName" id="taskName" placeholder="taskName"
                                aria-describedby="inputSuccess3Status">
                     </div>
                     <div class="form-group">
                         <label for="expectedTime">expectedTime</label>
-                        <input type="time" class="form-control" id="expectedTime" placeholder="expectedTime">
+                        <input type="time" class="form-control" name="expectedTime" id="expectedTime" placeholder="expectedTime">
                     </div>
                     <div class="form-group">
                         <label for="dueDate">dueDate</label>
-                        <input type="datetime-local" class="form-control" id="dueDate" placeholder="dueDate">
+                        <input type="date" class="form-control" name="dueDate" id="dueDate" placeholder="dueDate">
                     </div>
                     <div class="form-group">
-                        <label for="mainTask">mainTask</label>
-                        <input type="text" class="form-control" id="mainTask" placeholder="mainTask">
+                        <label for="mainTaskName">mainTask</label>
+                        <input type="text" class="form-control" name="mainTaskName" id="mainTaskName" placeholder="mainTask">
                     </div>
                     <div class="form-group">
-                        <label for="remark">remark</label>
-                        <textarea class="form-control" id="remark"></textarea>
+                        <label for="readUrl">read Resource</label>
+                        <input type="text" class="form-control" name="readUrl" id="readUrl" placeholder="read Resource">
+                    </div>
+                    <div class="form-group">
+                        <label for="remark">summary</label>
+                        <textarea class="form-control" name="remark" id="remark" placeholder="Give your Resources a rememberable name"></textarea>
                     </div>
                     <div class="form-group">
                         <label>is Done?</label><br>
@@ -139,9 +143,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" onclick="save()" class="btn btn-primary">Save</button>
                 </div>
-            </form>
         </div>
     </div>
 </div>
@@ -217,8 +220,122 @@
         }
     }
 
+    function reflush() {
+        location.reload();
+    }
+
     function toTimer() {
         location.assign("Timer.html");
+    }
+
+    let bool=false;
+    function doneOnclick() {
+        if (bool){
+            $(".isDone").text("Done");
+            bool=false;
+        }else {
+            $(".isDone").text("Not Done");
+            bool=true;
+        }
+    }
+
+    load();
+    function load() {
+        get("Task/list",'',function (res) {
+            console.log(res);
+            $(".task-block").empty();
+            $(".task-block").append(`<div class="operator row">
+                <button class="btn btn-sm col-lg-offset-10 col-lg-1" onclick="reflush()"><i class="fa fa-refresh fa-2x"
+                                                                        aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-sm col-lg-1" data-toggle="modal" data-target="#myModal"><i
+                        class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
+            </div>`);
+
+            let isDone=null;
+            res.forEach(function (value,index) {
+                if (value.isDone){
+                    isDone="Done";
+                }else {
+                    isDone="Not Done";
+                }
+                console.log(value.expectedTime);
+                if (index==0){
+                    $(".task-block").append(
+                    "<div class='task-card'>"+
+                "<div class='taskIntroduce'>"+
+                   "<div class='taskName'>"+value.taskName+"<sup class='urgent'>urgent</sup></div>"+
+                    "<div class='expectedTime'>"+
+                        "<ul>"+
+                            "<li>ExpectedTime:</li>"+
+                            "<li>"+value.expectedTime+"</li>"+
+                        "</ul>"+
+                    "</div>"+
+                   "<div class='dueDate'>"+
+                        "<ul>"+
+                            "<li>DueDate:</li>"+
+                            "<li>"+value.dueDate+"</li>"+
+                        "</ul>"+
+                    "</div>"+
+               "</div>"+
+                "<div class='task-content'>"+
+                    "<div class='mainTaskIntroduce'>"+
+                        "<div class='mainTaskName'>"+value.mainTaskName+"</div>"+
+                        "<div class='isOpen'><a href=http://"+value.readUrl+">open</a></div>"+
+                        "<div class='isDone' onclick='doneOnclick()'>"+isDone+"</div>"+
+                    "</div>"+
+                    "<div class='textarea'><textarea class='form-control' rows='5'>"+value.remark+"</textarea></div>"+
+                "</div>"+
+                       "<button class='deleteBtn btn btn-danger' onclick='del("+value.id+")'>delete</button>"+
+            "</div>");
+                }else {
+                    $(".task-block").append(
+                        "<div class='task-card'>"+
+                        "<div class='taskIntroduce'>"+
+                        "<div class='taskName'>"+value.taskName+"</div>"+
+                        "<div class='expectedTime'>"+
+                        "<ul>"+
+                        "<li>ExpectedTime:</li>"+
+                        "<li>"+value.expectedTime+"</li>"+
+                        "</ul>"+
+                        "</div>"+
+                        "<div class='dueDate'>"+
+                        "<ul>"+
+                        "<li>DueDate:</li>"+
+                        "<li>"+value.dueDate+"</li>"+
+                        "</ul>"+
+                        "</div>"+
+                        "</div>"+
+                        "<div class='task-content'>"+
+                        "<div class='mainTaskIntroduce'>"+
+                        "<div class='mainTaskName'>"+value.mainTaskName+"</div>"+
+                        "<div class='isOpen'><a href=http://"+value.readUrl+">open</a></div>"+
+                        "<div class='isDone' onclick='doneOnclick()'>"+isDone+"</div>"+
+                        "</div>"+
+                        "<div class='textarea'><textarea class='form-control' rows='5'>"+value.remark+"</textarea></div>"+
+                        "</div>"+
+                        "<button class='deleteBtn btn btn-danger' onclick='del("+value.id+")'>delete</button>"+
+                        "</div>");
+                }
+            })
+
+        },function (err) {
+            console.log(err);
+        })
+    }
+
+    function del(id) {
+        console.log(id);
+        if (confirm("Are you sure delete?")){
+            get("Task/delete",{
+                id:id
+            },function (res) {
+                alert("success");
+                location.reload()
+            },function (err){
+                console.log(err)
+            })
+        }
+
     }
 </script>
 </html>

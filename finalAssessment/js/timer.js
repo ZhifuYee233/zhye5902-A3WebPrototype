@@ -1,12 +1,11 @@
-
-
-let timerInterval;//定时调用周期函数
-let relaxInterval;//休息定时调用周期函数
-let timerRunTime=0;//一共有几秒
-let timerRunMinute;//分钟
-let timerRunSecond;//秒数
-let timerCurrentTime=-1;//当前时间
-let relaxCurrentTime=-1;//休息时间
+//Pomotimer
+let timerInterval;//Periodic function called regularly
+let relaxInterval;//Break Timer Call Periodic Function
+let timerRunTime=0;//Seconds in total
+let timerRunMinute;//min
+let timerRunSecond;//sec
+let timerCurrentTime=-1;//current time
+let relaxCurrentTime=-1;//break time
 function run(currentTime,seconds,dom) {
 
     let countdown = document.getElementById(dom);
@@ -69,6 +68,8 @@ function timerReload(){
 
 function toRelax() {
     if (confirm("relax 5 minutes?")){
+        timerCurrentTime=-1;
+        $("#timer").html("25:00");
         clearInterval(timerInterval);
         timerRunDisplay=false;
         $("#timerPlay").html("<i class=\"fa fa-play\" aria-hidden=\"true\"></i>")
@@ -88,6 +89,7 @@ function toTaskTime() {
         clearInterval(relaxInterval);
         relaxCurrentTime=-1;
         $("#relax").html("5:00");
+        $("#relaxPlay").html("<i class=\"fa fa-play\" aria-hidden=\"true\"></i>")
     }
 
 }
